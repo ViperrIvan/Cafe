@@ -1,0 +1,11 @@
+
+def check_decorator(f):def w(*a,<strong>k):buy();print("\n"+"="*30);f(*a,</strong>k);print("="*30+"\n");return w
+def menu(ui):global p;p={1:'кофе',2:'лапша',3:'бургер',4:'сочные пельмени'};return p[ui]
+def cost(k):return{'кофе':50,'лапша':100,'бургер':200,'сочные пельмени':250}[k]
+b=[];def busket():x=menu(ui);b[2*b.index(x)+1]+=n if x in b else b.extend([x,cost(x),n])
+@check_decorator
+def check():m=0;print('Ваш чек:');[print(f"{b[i]}: {b[i+1]} x {b[i+2]}шт")or(m:=m+b[i+1]*b[i+2])for i in range(0,len(b),3)];print(f'Оплачено: {m}');print(f'Внесено: {c}');print(f'Сдача: {c-m}'if b==1 else'')
+def zakaz():global ui,n;print('Что вы хотели бы заказать?');try:ui=int(input('Введите цифру соответствующую вашему выбору: '));n=int(input('введите количество: '));busket();zakaz()if input('Для продолжения заказа введите 1, иначе любой символ: ')=='1'else check()
+def printMenu():print('Меню:');[print(f'   {i}){menu(i)}: {cost(menu(i))}')for i in range(1, 5)]
+def buy():m=0;[m:=m+b[i+1]*b[i+2]for i in range(0,len(b),3)];print(f'Итого к оплате: {m}');global b;try:b=int(input('Введите цифру соответственно вашему выбору: '));c=int(input('Внесите сумму в рублях: '))if b==1else 0;print('Нехватает денежных средств!!!'if c<m else f'Сдача: {c-m}'if c>0 else'Долги берут в банке а не в кафе!!!')if b==1 else None
+printMenu();try:ui=int(input('Введите цифру соответствующую вашему выбору: '));n=int(input('Введите количество: '));busket();zakaz()if input('Для продолжения заказа введите 1, иначе любой символ: ')=='1'else check()except(KeyError,ValueError):print('Такого варианта нет или ошибка ввода!!!');zakaz()
